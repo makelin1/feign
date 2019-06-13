@@ -1,0 +1,36 @@
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+server:
+  port: 8765
+spring:
+  application:
+    name: service-feign
+    
+ribbon:
+  eureka:
+    enabled: true
+    
+feign:
+  hystrix:
+    enabled: true
+  client:
+    config:
+      default: #代表全局配置
+        # 配置Feign的日志级别，相当于代码配置方式中的Logger
+        #loggerLevel: basic
+        
+      service-feign: #具体的服务提供者
+        connectTimeout: 10000  # 相当于Request.Options
+        readTimeout: 60000     # 相当于Request.Options
+        #loggerLevel: full
+        # Feign的错误解码器，相当于代码配置方式中的ErrorDecoder
+        #errorDecoder: com.example.SimpleErrorDecoder
+        # 配置重试，相当于代码配置方式中的Retryer   个人并不建议配置retryer，Spring Cloud Camden以及之后的版本中，Spring Cloud关闭了Feign的重试，而是使用Ribbon的重试。如果自己再定义Feign的重试后，那么可能会造成重试特性的混乱
+        #retryer: com.example.SimpleRetryer
+        # 配置拦截器，相当于代码配置方式中的RequestInterceptor
+        #requestInterceptors:
+          #- com.example.FooRequestInterceptor
+          #- com.example.BarRequestInterceptor
+        #decode404: false
