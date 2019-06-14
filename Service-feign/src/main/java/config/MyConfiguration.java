@@ -29,10 +29,10 @@ public class MyConfiguration {
 	@Bean
 	public Decoder feignDecoder() {return null; }
 	
-	  @Bean 
-	  public Contract feignContract() { 
-		  return new Contract.Default(); 
-	  }
+//	  @Bean 
+//	  public Contract feignContract() { 
+//		  return new Contract.Default(); 
+//	  }
 	  
 	/* 修改日志级别 */
 	  //@Bean

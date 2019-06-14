@@ -14,7 +14,7 @@ public class HelloController {
 	@Autowired
 	SchedualServiceHello schedualServiceHello;
 	
-	@RequestMapping(value="/he")
+	@RequestMapping(value="/he",method = RequestMethod.GET)
 	public String hw(@RequestParam String name) {
 		return schedualServiceHello.helloFromCilent(name);
 	}

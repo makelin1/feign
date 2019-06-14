@@ -1,8 +1,11 @@
 package com.example.demo.feign;
 
+import javax.websocket.server.PathParam;
+
 import org.springframework.cloud.netflix.feign.FeignClient;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -34,8 +37,8 @@ public interface SchedualServiceHello {
 　　　* 3、使用requestBody，应该使用@PostMapping
      * 4、多个参数的时候，通过@RequestParam（"id") int id)方式调用
      */
-	@RequestMapping(value="/hello")
-	String helloFromCilent(@RequestParam(value = "name") String name);
+	@RequestMapping(value="/hello",method = RequestMethod.GET)
+	String helloFromCilent(@RequestParam(value = "name") String name);//
 
 }
 

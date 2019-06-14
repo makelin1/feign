@@ -12,18 +12,27 @@ ribbon:
   eureka:
     enabled: true
     
+management:
+  endpoint:
+    health:
+      show-details: always
+    
+
+#feign.compression.request.enabled=true
+#feign.compression.response.enabled=true  
+   
 feign:
   hystrix:
     enabled: true
-  client:
-    config:
-      default: #代表全局配置
+  #client:
+    #config:
+     # default: #代表全局配置
         # 配置Feign的日志级别，相当于代码配置方式中的Logger
-        #loggerLevel: basic
+        #loggerLevel: full
         
-      service-feign: #具体的服务提供者
-        connectTimeout: 10000  # 相当于Request.Options
-        readTimeout: 60000     # 相当于Request.Options
+      #service-hello: #具体的服务提供者
+        #connectTimeout: 10000  # 相当于Request.Options
+        #readTimeout: 60000     # 相当于Request.Options
         #loggerLevel: full
         # Feign的错误解码器，相当于代码配置方式中的ErrorDecoder
         #errorDecoder: com.example.SimpleErrorDecoder
